@@ -86,7 +86,7 @@ WHERE
                AND main.season = sub.season);
 
 
---- using cte for shwoing the seasons and max score details               
+--- using cte for showing the seasons and max score details               
 WITH max_goals AS (
     SELECT 
         country_id,
@@ -110,8 +110,8 @@ JOIN max_goals AS g
    AND (m.home_goal + m.away_goal) = g.max_total_goals
 ORDER BY m.country_id, m.season;
 
---Nested sub quries 
---Example claculte the diffrence bewteen each month's total goals and monthly average of goals scored 
+--Nested sub queries 
+--Example calculte the diffrence bewteen each month's total goals and monthly average of goals scored 
 SELECT 
     EXTRACT(MONTH FROM TO_DATE(date, 'MM/DD/YY HH24:MI')) AS month,
     SUM(home_goal + away_goal) AS total_goals,
@@ -344,7 +344,7 @@ WHERE m.season = '2014/2015'
            OR away.team_long_name = 'Manchester United');
 
 
- ------ rank matches by the absolute goal diffrenece to see how badly manchester united lost each match 
+ ------ rank matches by the absolute goal difference to see how badly manchester united lost each match 
  WITH home AS (
   SELECT m.id, t.team_long_name,
       CASE 
