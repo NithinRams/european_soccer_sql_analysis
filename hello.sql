@@ -1,0 +1,1 @@
+select 'Hello World from sql query' as greeting;
